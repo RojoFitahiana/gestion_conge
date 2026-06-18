@@ -1,0 +1,39 @@
+
+  <!-- Liste des demandes -->
+  <div class="demandes-container">
+    <h2>Mes demandes</h2>
+  
+    <!-- Indicateur de chargement -->
+    <div *ngIf="isLoading" class="loading-message">
+      Chargement des demandes...
+    </div>
+  
+    <!-- Liste vide -->
+    <div *ngIf="!isLoading && demandes.length === 0" class="empty-message">
+      Aucune demande trouvée
+    </div>
+  
+    <!-- Liste des demandes -->
+    <div *ngFor="let demande of demandes" class="demande-card">
+      <div class="header">
+        <h3>{{ demande.type_conge?.name }}</h3>
+      </div>
+      
+      <div class="dates">
+        <div class="date-item">
+          <strong>Début :</strong> {{ formatDate(demande.date_debut) }}
+        </div>
+        <div class="date-item">
+          <strong>Fin :</strong> {{ formatDate(demande.date_fin) }}
+        </div>
+      </div>
+  
+      <div class="commentaire" *ngIf="demande.commentaire">
+        <strong>Commentaire :</strong> {{ demande.commentaire }}
+      </div>
+  
+      <div class="footer">
+        <small>Soumis le {{ formatDate(demande.date_soumission) }}</small>
+      </div>
+    </div>
+  </div>

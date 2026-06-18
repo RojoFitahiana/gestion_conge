@@ -1,0 +1,60 @@
+<div class="leave-request-container">
+  <!-- En-tête -->
+  <div class="header-container">
+    
+  </div>
+
+  <!-- Indicateur de chargement -->
+  <div *ngIf="loading" class="loading-indicator">
+      <div class="spinner"></div>
+      <p>Chargement des demandes...</p>
+  </div>
+
+  <!-- Message d'erreur -->
+  <div *ngIf="error" class="error-alert">
+      ⚠️ {{ error }}
+  </div>
+
+  <!-- Tableau des demandes -->
+  <div *ngIf="!loading && !error">
+      <div *ngIf="filteredLeaveRequests.length > 0; else noRequests">
+          <table class="request-table">
+              <thead>
+                  <tr>
+                      <th>Employé</th>
+                      <th>Département</th>
+                      <th>Date Début</th>
+                      <th>Date Fin</th>
+                      <th>Type</th>
+                      <th>Jours demandés</th>
+                      <th>Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let request of filteredLeaveRequests">
+                      <td>{{ request.employe?.nom }} {{ request.employe?.prenom }}</td>
+                      <td>{{ request.employe.departement.nom_departement }} (ID: {{ request.employe.departement.id }})</td>
+                      <td>{{ request.date_debut | date:'dd/MM/yyyy' }}</td>
+                      <td>{{ request.date_fin | date:'dd/MM/yyyy' }}</td>
+                      <td>{{ request.type_conge?.name }}</td>
+                      <td>{{ request.jours_pris }}</td>
+                      <td class="actions-cell">
+                          <button class="approve-btn" (click)="approveRequest(request)">
+                              ✓ Approuver
+                          </button>
+                          <button class="reject-btn" (click)="rejectRequest(request)">
+                              ✗ Refuser
+                          </button>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+
+      <ng-template #noRequests>
+          <div class="no-requests-message">
+              🎉 Aucune demande en attente pour le moment !
+          </div>
+      </ng-template>
+  </div>
+</div>

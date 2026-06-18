@@ -1,0 +1,21 @@
+// custom-styles.scss
+// Migration des fichiers personnalisés vers @use
+@use 'scss/settings/color-variables' as color-vars;
+@use 'scss/settings/theme-variables' as theme-vars;
+@use 'scss/settings/bootstrap-variables.scss' as bs-vars;
+
+// Migration des thèmes vers @use
+@use 'scss/themes/generic.scss' as generic;
+@use 'scss/themes/general.scss' as general;
+
+// Layouts
+@use 'scss/themes/layouts/layouts' as layouts;
+
+// Components
+@use 'scss/themes/components/components' as components;
+
+// Pages
+@use 'scss/themes/pages/page.scss' as pages;
+
+@use 'scss/themes/customizer' as customizer;
+@use 'scss/style-preset.scss' as preset;

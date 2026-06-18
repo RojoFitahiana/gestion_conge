@@ -1,0 +1,135 @@
+<div class="row">
+  <!-- Carte des employés -->
+  <div class="col-xl-4 col-md-6">
+    <div class="card earning-card bg-secondary-dark text-white overflow-hidden">
+      <span class="round secondary-round small"></span>
+      <span class="round secondary-round big"></span>
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col-auto me-3">
+            <div class="avatar avatar-xl">
+              <i class="text-white ti ti-calendar f-54"></i>
+            </div>
+          </div>
+          <div class="col">
+            <span class="text-white d-block f-34 f-w-500 my-2">
+              {{ remainingDays }}
+              <i class="ti ti-circle-arrow-up-right opacity-50"></i>
+            </span>
+            <p class="mb-0 opacity-50">Jours restants</p>
+          </div>
+          <div class="col-auto">
+            <div class="btn-group" ngbDropdown>
+              <a type="button" class="avatar avatar-xs bg-secondary dropdown-toggle arrow-none" ngbDropdownToggle>
+                <i class="ti ti-dots"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                <li><button class="dropdown-item" type="button">Détails</button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carte des demandes de congé -->
+  <div class="col-xl-4 col-md-6">
+    <div class="card earning-card bg-primary-dark text-white overflow-hidden">
+      <span class="round primary-round small"></span>
+      <span class="round primary-round big"></span>
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col-auto me-3">
+            <div class="avatar avatar-xl">
+              <i class="text-white ti ti-clock f-54"></i>
+            </div>
+          </div>
+          <div class="col">
+            <span class="text-white d-block f-34 f-w-500 my-2">
+              {{ pendingRequests }}
+              <i class="ti ti-circle-arrow-up-right opacity-50"></i>
+            </span>
+            <p class="mb-0 opacity-50"> en attente</p>
+          </div>
+          <div class="col-auto">
+            <div class="btn-group" ngbDropdown>
+              <a type="button" class="avatar avatar-xs bg-primary dropdown-toggle arrow-none" ngbDropdownToggle>
+                <i class="ti ti-dots"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cartes de revenus -->
+  <div class="col-xl-4 col-md-12">
+    <div class="card total-income-card overflow-hidden bg-primary-dark text-white">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <div class="avatar avatar-lg icon m-r-5">
+            <i class="text-white ti ti-layout-board-split f-24"></i>
+          </div>
+          <div class="ms-2">  
+            <h4 class="text-white f-w-600 mb-1">
+              {{ absentToday }}
+            </h4> <!-- Valeur statique -->
+            <p class="mb-0 opacity-50 text-sm">Employé abscent aujourd'hui  </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card total-income-card warning overflow-hidden">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <div class="avatar avatar-lg icon-warning m-r-5">
+            <i class="text-warning ti ti-layout-board-split f-24"></i>
+          </div>
+          <div class="ms-2">
+            <h4 class="f-w-600 mb-1"> {{ takenDays }}</h4>  <!-- Valeur statique -->
+            <p class="mb-0 opacity-50 text-sm">nbr congé pris</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Graphique -->
+  <div class="col-xl-8 col-md-12">
+    <app-chart-view-employe />
+  </div>
+
+  <!-- Section des actions -->
+  <div class="col-xl-4 col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="row mb-3 align-items-center">
+          <div class="col">
+            <h4>Actions rapides</h4>
+          </div>
+        </div>
+        <div class="rounded bg-light-secondary overflow-hidden mb-3">
+          <div class="px-3 pt-3">
+            <div class="row mb-1 align-items-start">
+              <div class="col">
+                <h5 class="text-secondary mb-0">Nouvelle demande</h5>
+                <small class="text-muted">Créer une demande de congé</small>
+              </div>
+              <div class="col-auto">
+                <button class="btn btn-sm btn-primary">Créer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <a href="javascript:" class="b-b-primary text-primary f-w-500">
+            Voir toutes les actions
+            <i class="ti ti-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

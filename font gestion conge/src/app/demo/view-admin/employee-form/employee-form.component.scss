@@ -1,0 +1,104 @@
+.auth-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.auth-wrapper {
+  max-width: 500px;
+  width: 100%;
+}
+
+.auth-form {
+  padding: 20px;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.auth-header {
+  text-align: center;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-floating {
+  position: relative;
+}
+div.mat-mdc-select-panel {
+  background-color: white !important; // Force la couleur de fond à blanc
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.form-floating label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+.form-floating input,
+.form-floating mat-select {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+
+
+.d-grid {
+  display: grid;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-secondary:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+hr {
+  margin: 20px 0;
+}
+
+h5 a {
+  color: #6c757d;
+  text-decoration: none;
+}
+
+h5 a:hover {
+  text-decoration: underline;
+}
+
+
+div.mat-mdc-select-panel{
+  background-color: white;
+}
+
+#unique-container {
+  ::ng-deep .custom-select-panel {
+    background-color: white !important;
+    border: 1px solid #ced4da !important;
+    border-radius: 5px !important;
+  }
+}

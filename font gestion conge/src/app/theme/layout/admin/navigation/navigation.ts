@@ -1,0 +1,224 @@
+export interface NavigationItem {
+  id: string;
+  title: string;
+  type: 'item' | 'collapse' | 'group';
+  translate?: string;
+  icon?: string;
+  hidden?: boolean;
+  url?: string;
+  classes?: string;
+  external?: boolean;
+  target?: boolean;
+  breadcrumbs?: boolean;
+  children?: NavigationItem[];
+  role?: string[];
+  isMainParent?: boolean;
+}
+
+export const NavigationItems: NavigationItem[] = [
+  {
+    id: 'dashboard',
+    title: 'Dashboard',
+    type: 'group',
+    icon: 'icon-navigation',
+    children: [
+      {
+        id: 'default',
+        title: 'Dashboard',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/admin/default',
+        icon: 'ti ti-dashboard',
+        breadcrumbs: false
+      }
+    ]
+  },
+  {
+    id: 'compte',
+    title: 'Compte',
+    type: 'group',
+    icon: 'icon-navigation',
+    children: [
+      {
+        id: 'demande',
+        title: 'Compte des utilisateurs',
+        type: 'collapse',
+        icon: 'ti ti-key',
+        children: [
+          {
+            id: 'modification',
+            title: 'Gestion des comptes',
+            type: 'item',
+            icon: 'ti ti-key',
+            url: '/guest/register',
+            target: true,
+            breadcrumbs: false
+          },
+          {
+            id: 'demande',
+            title: 'Historique d utilisation',
+            type: 'item',
+            icon: 'ti ti-key',
+            url: '/guest/login',
+            target: true,
+            breadcrumbs: false
+          },
+          
+        ]
+      }
+    ]
+  },
+  /*
+  {
+    id: 'page',
+    title: 'Pages',
+    type: 'group',
+    icon: 'icon-navigation',
+    children: [
+      {
+        id: 'Authentication',
+        title: 'Authentication',
+        type: 'collapse',
+        icon: 'ti ti-key',
+        children: [
+          {
+            id: 'login',
+            title: 'Login',
+            type: 'item',
+            url: '/guest/login',
+            target: true,
+            breadcrumbs: false
+          },
+          {
+            id: 'register',
+            title: 'Register',
+            type: 'item',
+            url: '/guest/register',
+            target: true,
+            breadcrumbs: false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'elements',
+    title: 'Elements',
+    type: 'group',
+    icon: 'icon-navigation',
+    children: [
+      {
+        id: 'typography',
+        title: 'Typography',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/typography',
+        icon: 'ti ti-typography'
+      },
+      {
+        id: 'color',
+        title: 'Colors',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/color',
+        icon: 'ti ti-brush'
+      },
+      {
+        id: 'tabler',
+        title: 'Tabler',
+        type: 'item',
+        classes: 'nav-item',
+        url: 'https://tabler-icons.io/',
+        icon: 'ti ti-plant-2',
+        target: true,
+        external: true
+      }
+    ]
+  },*/
+  {
+    id: 'employe',
+    title: 'Employé',
+    type: 'group',
+    icon: 'icon-navigation',
+    children: [
+      {
+        id: 'Gestion',
+        title: 'Gestion employé',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/admin/compte-employe',
+        icon: 'ti ti-typography'
+      },
+      {
+        id: 'color',
+        title: 'Demande de congé',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/admin/leave-request',
+        icon: 'ti ti-brush'
+      },
+      {
+        id: 'tabler',
+        title: 'Historiques de congés',
+        type: 'item',
+        classes: 'nav-item',
+        url: 'https://tabler-icons.io/',
+        icon: 'ti ti-plant-2',
+        target: true,
+        external: true
+      }
+    ]
+  },
+  {
+    id: 'autres',
+    title: 'Autres',
+    type: 'group',
+    icon: 'icon-navigation',
+    children: [
+      {
+        id: 'sample-page',
+        title: 'Calendrier',
+        type: 'item',
+        url: '/admin/calendrier',
+        classes: 'nav-item',
+        icon: 'ti ti-brand-chrome'
+      },
+      {
+        id: 'societe',
+        title: 'Notre société',
+        type: 'item',
+        classes: 'nav-item',
+        url: 'localhost:4200',
+        icon: 'ti ti-vocabulary',
+        target: true,
+        external: true
+      }
+    ]
+  },/*
+  {
+    id: 'other',
+    title: 'Other',
+    type: 'group',
+    icon: 'icon-navigation',
+    children: [
+      {
+        id: 'sample-page',
+        title: 'Sample Page',
+        type: 'item',
+        url: '/sample-page',
+        classes: 'nav-item',
+        icon: 'ti ti-brand-chrome'
+      },
+      {
+        id: 'document',
+        title: 'Document',
+        type: 'item',
+        classes: 'nav-item',
+        url: 'localhost:4200',
+        icon: 'ti ti-vocabulary',
+        target: true,
+        external: true
+      }
+    ]
+  }*/
+];

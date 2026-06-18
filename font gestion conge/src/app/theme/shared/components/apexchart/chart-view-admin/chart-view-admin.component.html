@@ -1,0 +1,34 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row mb-2 align-items-center">
+      <div class="col">
+        <div class="text-sm">Total demandes de congés pour ces 6 derniers mois</div>
+        <h4 class="mt-2 f-w-600">{{ totalLeaveRequests }} Congés Demandé</h4>
+      </div>
+      <div class="col-auto">
+        <select class="form-select p-r-35" title="Select">
+          <option>Today</option>
+          <option selected>Month</option>
+          <option>Year</option>
+        </select>
+      </div>
+    </div>
+    <!-- Ajout de *ngIf pour attendre que chartOptions soit défini -->
+    <div *ngIf="chartOptions; else loading">
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [dataLabels]="chartOptions.dataLabels"
+        [plotOptions]="chartOptions.plotOptions"
+        [responsive]="chartOptions.responsive"
+        [xaxis]="chartOptions.xaxis"
+        [colors]="chartOptions.colors"
+        [tooltip]="chartOptions.tooltip"
+      ></apx-chart>
+    </div>
+    <!-- Message de chargement ou d'erreur optionnel -->
+    <ng-template #loading>
+      <p>Chargement des données...</p>
+    </ng-template>
+  </div>
+</div>

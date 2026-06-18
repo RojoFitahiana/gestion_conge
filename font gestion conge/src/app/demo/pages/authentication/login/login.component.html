@@ -1,0 +1,97 @@
+<div class="auth-main">
+  <div class="auth-wrapper v3">
+    <div class="auth-form">
+      <div class="card my-5">
+        <div class="card-body">
+          <div class="row">
+            <div class="d-flex justify-content-center">
+              <div class="auth-header">
+                <h2 class="text-secondary mt-5"><b>Gestion de congés et absences</b></h2>
+                <p class="fs-4 mt-2">Entrer votre coordonné pour continuer</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Formulaire Angular -->
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="d-grid">
+              <button type="button" class="btn mt-2 btn-light-primary bg-light text-muted">
+                <img src="assets/images/authentication/google-icon.svg" alt="google" />
+                Se connecter avec Google
+              </button>
+            </div>
+            
+            <div class="saprator mt-3">
+              <span>ou</span>
+            </div>
+            
+            <h5 class="my-4 d-flex justify-content-center">Se connecter avec adresse Email</h5>
+            
+            <!-- Champ Email -->
+            <div class="form-floating mb-3">
+              <input 
+                type="email" 
+                class="form-control" 
+                id="floatingInput"
+                formControlName="email"
+                [class.is-invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+              <label for="floatingInput">Email</label>
+              <div class="invalid-feedback">
+                <div *ngIf="loginForm.get('email')?.errors?.['required']">Email est obligatioire </div>
+                <div *ngIf="loginForm.get('email')?.errors?.['email']">Format d'email ivalide</div>
+              </div>
+            </div>
+
+            <!-- Champ Password -->
+            <div class="form-floating mb-3">
+              <input 
+                type="password" 
+                class="form-control" 
+                id="password"
+                formControlName="password"
+                [class.is-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+              <label for="password">Mot de passe</label>
+              <div class="invalid-feedback">
+                <div *ngIf="loginForm.get('password')?.errors?.['required']">Mot de passe requise</div>
+              </div>
+            </div>
+
+            <div class="d-flex mt-1 justify-content-between">
+              <div class="form-check">
+                <input 
+                  class="form-check-input input-primary" 
+                  type="checkbox" 
+                  id="customCheckc1"
+                  formControlName="rememberMe">
+                <label class="form-check-label text-muted" for="customCheckc1">se souvenir de moi</label>
+              </div>
+              <h5 class="text-secondary">
+                <a [routerLink]="['/forgot-password']">Oublier le mot de passe?</a>
+              </h5>
+            </div>
+
+            <!-- Message d'erreur -->
+            <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+              {{ errorMessage }}
+            </div>
+
+            <!-- Bouton Submit -->
+            <div class="d-grid mt-4">
+              <button 
+                type="submit" 
+                class="btn btn-secondary"
+                [disabled]="!loginForm.valid || loading">
+                {{ loading ? 'Entrain de connecter...' : 'Se Connecter' }}
+              </button>
+            </div>
+          </form>
+
+          <hr />
+          <h5 class="d-flex justify-content-center">
+            <a [routerLink]="['/guest/register']">Vous avez déja un compte?</a>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

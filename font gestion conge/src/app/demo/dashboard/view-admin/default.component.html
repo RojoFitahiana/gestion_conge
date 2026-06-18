@@ -1,0 +1,117 @@
+<div class="row">
+  <div class="col-xl-4 col-md-6">
+    <div class="card earning-card bg-secondary-dark text-white overflow-hidden">
+      <span class="round secondary-round small"></span>
+      <span class="round secondary-round big"></span>
+      <div class="card-body">
+        <div class="row align-items-center">
+          <!-- Logo des employés à gauche (plus gros) -->
+          <div class="col-auto me-3">
+            <div class="avatar avatar-xl"> <!-- Utilisez une classe personnalisée pour un conteneur plus grand -->
+              <i class="text-white ti ti-users f-54"></i> <!-- Taille de l'icône inchangée -->
+            </div>
+          </div>
+          <!-- Nombre d'employés au milieu -->
+          <div class="col"> 
+            <span class="text-white d-block f-34 f-w-500 my-2">
+              {{ totalEmployees }} <!-- Affichez le nombre d'employés dynamiquement -->
+              <i class="ti ti-circle-arrow-up-right opacity-50"></i>
+            </span>
+            <p class="mb-0 opacity-50">Nombre total d'employés       </p>
+          </div>
+  
+          <!-- Menu déroulant à droite -->
+          <div class="col-auto">
+            <div class="btn-group" ngbDropdown>
+              <a type="button" class="avatar avatar-xs bg-secondary dropdown-toggle arrow-none" ngbDropdownToggle>
+                <i class="ti ti-dots"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                <li><button class="dropdown-item" type="button">Importer</button></li>
+                <li><button class="dropdown-item" type="button">Exporter</button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4 col-md-6">
+    <div class="card earning-card bg-primary-dark text-white overflow-hidden">
+      <span class="round primary-round small"></span>
+      <span class="round primary-round big"></span>
+      <div class="card-body">
+        <div class="row align-items-center">
+          <!-- Icône des employés -->
+          <div class="col-auto me-3">
+            <div class="avatar avatar-xl">
+              <i class="text-white ti ti-calendar f-54"></i>
+            </div>
+          </div>
+         
+          <div class="col"> 
+            <span class="text-white d-block f-34 f-w-500 my-2">
+              {{ totalLeaveRequests }} <!-- Affichage du nombre total de demandes -->
+              <i class="ti ti-circle-arrow-up-right opacity-50"></i>
+            </span>
+            <p class="mb-0 opacity-50">Demandes en attente</p>
+          </div>
+  
+          <!-- Menu déroulant -->
+          <div class="col-auto">
+            <div class="btn-group" ngbDropdown>
+              <a type="button" class="avatar avatar-xs bg-primary dropdown-toggle arrow-none" ngbDropdownToggle>
+                <i class="ti ti-dots"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4 col-md-12">
+    <div class="card total-income-card overflow-hidden bg-primary-dark text-white">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <div class="avatar avatar-lg icon m-r-5">
+            <i class="text-white ti ti-layout-board-split f-24"></i>
+          </div>
+          <div class="ms-2">
+            <h4 class="text-white f-w-600 mb-1" *ngIf="upcomingEvent; else noEvent">
+              {{ upcomingEvent.title }} ({{ upcomingEvent.date | date: 'dd/MM/yyyy' }})
+            </h4>
+            <ng-template #noEvent>
+              <h4 class="text-white f-w-600 mb-1">...</h4>
+            </ng-template>
+            <p class="mb-0 opacity-50 text-sm">Prochain événement à venir</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card total-income-card warning overflow-hidden">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <div class="avatar avatar-lg icon-warning m-r-5">
+            <i class="text-warning ti ti-layout-board-split f-24"></i>
+          </div>
+          <div class="ms-2">
+            <h4 class="f-w-600 mb-1">3</h4>
+            <p class="mb-0 opacity-50 text-sm">Prochaine absence</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ <div class="col-xl-8 col-md-12">
+    <app-chart-view-admin />
+  </div>
+  <div class="col-xl-4 col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <h4>Répartition des types de congé</h4>
+        <app-leave-type-pie-chart></app-leave-type-pie-chart>
+      </div>
+    </div>
+  </div>
+</div>
+    
